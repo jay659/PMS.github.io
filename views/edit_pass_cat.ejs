@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- javascript -->
+         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        <!-- font awsome -->
+        <script src="https://kit.fontawesome.com/dd356611f9.js" crossorigin="anonymous"></script>
+        <title>edit catagory</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#"></a><%= title %></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            
+            
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Password Catagory
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="/add_new_catagory">Add new catagory</a>
+                <a class="dropdown-item" href="/password_catagory">view all catagory</a>
+         
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Password Details
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="/add_new_password">Add newpassword</a>
+                  <a class="dropdown-item" href="/view_all_password">view all password</a>
+                 
+                </div>
+              </li>
+              <li><a href="/logout">logout</a></li>
+          </ul>
+         
+             
+        
+        </div>
+          <%
+                  if(loginuser!='')
+                  {%>
+                  <h1>welcome <%= loginuser%></h1>
+                  <%}
+          %>
+      </nav>
+  
+    
+ 
+<div class="container" style="margin-top: 50px;">
+     <div class="row">
+   
+       <div class="col-md-6 offset-md-3">
+        
+            <div class="card">
+              <div class="card-header  text-white text-center"style="background-color:#99CCFF;">
+                
+                <P style="text-transform: uppercase; color: black;">add new Catagory</P>
+              </div>
+              <div class="card-body">
+                <form method="POST" action="/password_catagory/edit/">
+                <input type="hidden" name="id" value="<%= id %>">
+      
+                  <div class="form-group ">
+                  <%
+                    if(errors!=''){%>
+                      <p style="color:red;"><%= errors.passwordcatagory.msg%></p>
+                    <%}
+                  %>
+                   <%
+                    if(success!=''){%>
+                      <p style="color:green;"><%= success%></p>
+                    <%}
+                  %>
+                    
+                    <label for="user">catagory name</label>
+                    <input type="text" class="form-control" name="editpasswordcat" value="<%=records.passwordCatagory%>" id="exampleInputuser1" aria-describedby="userHelp" placeholder="enter catagory name">
+                   
+                  </div>
+                  
+               
+              
+                  <button type="submit" class="btn btn-primary offset-md-3 col-md-6">Update Catagort</button>
+                  
+                </form>
+                     <a href="/password_catagory" > view all catagories</a>
+
+              </div>
+            </div>
+       </div>
+     </div>
+ </div>
+
+</body>
+</html>

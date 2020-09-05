@@ -1,0 +1,69 @@
+<%- include('header')%>
+  
+    
+ 
+<div class="container" style="margin-top: 50px;">
+     <div class="row">
+   
+       <div class="col-md-6 offset-md-3">
+          <%
+                   if(success!=''){%>
+                     <p style="color:green;"><%= success%></p>
+                   <%}
+                 %>
+            <div class="card">
+              <div class="card-header  text-white text-center"style="background-color:#99CCFF;">
+                
+                <P style="text-transform: uppercase; color: black;"> Edit  password</P>
+              </div>
+              <div class="card-body">
+                <form method="POST" action="/password_details/edit/<%=  id %>">
+                <input type="hidden" name="id" value="<%= id %>"> 
+                 <div class="form-group ">
+                    <label for="user">password details</label>
+                    <div class="col-md-8">
+                        <select name="pass_cata"  class="form-control" id="exampleInputuser1" aria-describedby="userHelp" >
+                            <option>choose password catagory</option>
+                            <% if (records.length>0){
+                              records.forEach(function(row){
+                              %>
+                            <option value="<%= row.passwordCatagory%>"<% if (row.passwordCatagory==record.passwordCatagory){%> selected <%} %>><%= row.passwordCatagory%></option> //it will show catagoriea taht we inserted in dbs 
+                           
+                             <%}) } %>
+                        </select>
+                    </div>
+                  </div>
+                  
+                  
+
+                  <div class="form-group ">
+                    <label for="user">password details</label>
+                    <textarea type="text"  id="editor" class="form-control" rows="5" name="pass_details"   id="exampleInputuser1" aria-describedby="userHelp"placeholder="add your password details" >
+                   <%= record.passworddetail  %>
+                </textarea>
+                </div>
+                
+                  <div class="form-group ">
+                    <label for="project">project name</label>
+                    <input type="text"   class="form-control" name="pass_proj"   id="exampleInputuser1" aria-describedby="userHelp"placeholder="add your project name again" value="<%= record.projectDetail %>" >
+                  </div>
+                  
+                <div class="form-group ">
+                  <button type="submit" class="btn btn-primary offset-md-3 col-md-6">Edit password</button>
+                </div>
+              
+                  
+                  
+                </form>
+                     <a href="/password_catagory" > view all Password Catagory</a>
+
+              </div>
+            </div>
+       </div>
+     </div>
+ </div>
+            <script> // it just replace our text area with editor
+            CKEDITOR.replace('editor');
+            </script>
+</body>
+</html>

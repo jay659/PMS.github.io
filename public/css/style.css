@@ -1,0 +1,84 @@
+*{
+    padding:0px;
+    margin:0px;
+    box-sizing: border-box;
+}
+
+ .card{
+    box-shadow: 0 0 3px gray;
+} 
+/* title of nav  */
+.title{
+    color:black;
+    text-shadow: 0 0 3px gray;
+}
+/* icons */
+.fa-key,.fa-user-circle,.fa-envelope,.fa-eye-slash,.fa-eye{
+    margin:10px;
+    color: gray;
+}
+
+
+
+/* login eye portion */
+.eye{
+    display: flex;
+    justify-content: flex-end;
+}
+#show{
+    visibility: hidden;
+}
+
+/* for global links */
+#links{
+    color: black;
+}
+
+a:hover{
+    text-decoration:none;
+    
+}
+.close_btn:hover{
+    color:grey !important;
+    transform: scale(1.2);
+    transition:  .6s ease-in-out ;
+}
+#link_logout{
+    text-decoration:none !important;
+    color: black;
+   padding:1.6rem;
+}
+.user{
+    display: flex;
+    justify-content:flex-end;
+}
+
+@media(max-width:768px){
+    .buttons{
+        font-size: 10px !important;
+        display:flex !important;
+        flex-direction: column !important;
+
+        margin-bottom: 5px !important;
+    }
+    .table_heading{
+        font-size:14px;
+        font-weight: bolder;
+    }
+    .table_body{
+        font-size:16px;
+        
+    }
+    .table_main{
+        font-size: 20px;
+        font-weight: 600;
+       display:grid;
+       place-items: center;
+    }
+    .nav_head{
+        font-size: 15px;
+    }
+    .user{
+        margin:1rem;
+    }
+}
